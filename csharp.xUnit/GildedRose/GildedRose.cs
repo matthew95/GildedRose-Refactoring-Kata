@@ -66,8 +66,20 @@ public class GildedRose
             }
 
             // will implement this one later. not part of original code.
+            // will add the original code tho.
             if (item.Name == ItemNames.Conjured)
             {
+                if (item.Quality > 0)
+                {
+                    item.Quality = item.Quality - 1;
+                }
+                
+                item.SellIn = item.SellIn - 1;
+
+                if (item.SellIn < 0 && item.Quality > 0)
+                { 
+                    item.Quality = item.Quality - 1;
+                }
             }
 
             if (item.Name == ItemNames.ElixirOfTheMongoose)
@@ -97,38 +109,6 @@ public class GildedRose
                     item.Quality = item.Quality - 1;
                 }
             }
-
-            // ---------------
-            if (item.Name == ItemNames.Conjured
-                )
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
-                }
-            }
-            
-           
-
-            if (
-                item.Name == ItemNames.Conjured
-                )
-            {
-                item.SellIn = item.SellIn - 1;
-            }
-
-            
-           
-            
-            if (item.Name == ItemNames.Conjured
-                )
-            {
-                if (item.SellIn < 0 && item.Quality > 0)
-                { 
-                    item.Quality = item.Quality - 1;
-                }
-            }
-            
         }
     }
 }
