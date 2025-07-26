@@ -54,22 +54,21 @@ public class GildedRose
             {
                 if (item.Name != "Aged Brie")
                 {
-                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                    {
-                        if (item.Quality > 0)
-                        {
-                            if (item.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                item.Quality = item.Quality - 1;
-                            }
-                        }
-                    }
-                    else
+                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
                         item.Quality = item.Quality - item.Quality;
                     }
+                    
+                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert" &&
+                        item.Name != "Sulfuras, Hand of Ragnaros")
+                    {
+                        if (item.Quality > 0)
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
+                    }
                 }
-                else
+                if (item.Name == "Aged Brie")
                 {
                     if (item.Quality < 50)
                     {
