@@ -10,21 +10,31 @@ public class GildedRose
     {
         this.Items = Items;
     }
+    private static class ItemNames
+    {
+        public static string AgedBrie => "Aged Brie";
+        public static string BackstagePasses => "Backstage passes to a TAFKAL80ETC concert";
+        public static string Conjured => "Conjured Mana Cake";
+        public static string ElixirOfTheMongoose => "Elixir of the Mongoose";
+        public static string PlusFiveDexterityVest => "+5 Dexterity Vest";
+        public static string Sulfuras => "Sulfuras, Hand of Ragnaros";
+        
+    }
 
     public void UpdateQuality()
     {
         foreach (var item in this.Items)
         {
             if (item.Quality > 0 &&
-                item.Name != "Sulfuras, Hand of Ragnaros" &&
-                item.Name != "Aged Brie" && 
-                item.Name != "Backstage passes to a TAFKAL80ETC concert"
+                item.Name != ItemNames.Sulfuras &&
+                item.Name != ItemNames.AgedBrie && 
+                item.Name != ItemNames.BackstagePasses
                 )
             {
                 item.Quality = item.Quality - 1;
             }
             
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.Quality < 50) {
+            if (item.Name == ItemNames.BackstagePasses && item.Quality < 50) {
                 item.Quality = item.Quality + 1;
                 
                 if (item.SellIn < 11 &&
@@ -40,13 +50,13 @@ public class GildedRose
                 }
             }
 
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            if (item.Name != ItemNames.Sulfuras)
             {
                 item.SellIn = item.SellIn - 1;
             }
 
             
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            if (item.Name == ItemNames.BackstagePasses)
             {
                 if (item.SellIn < 0)
                 {
@@ -54,9 +64,9 @@ public class GildedRose
                 }
             }
             
-            if (item.Name != "Backstage passes to a TAFKAL80ETC concert" &&
-                item.Name != "Sulfuras, Hand of Ragnaros" &&
-                item.Name != "Aged Brie")
+            if (item.Name != ItemNames.BackstagePasses &&
+                item.Name != ItemNames.Sulfuras &&
+                item.Name != ItemNames.AgedBrie)
             {
                 if (item.SellIn < 0 && item.Quality > 0)
                 { 
@@ -64,14 +74,10 @@ public class GildedRose
                 }
             }
             
-            if (item.Name == "Aged Brie" && item.Quality < 50)
+            if (item.Name == ItemNames.AgedBrie && item.Quality < 50)
             {
                 item.Quality = item.Quality + 1;
-            }
-            
-            if (item.Name == "Aged Brie")
-            {
-                if (item.SellIn < 0 && item.Quality < 50)
+                if (item.SellIn < 0 )
                 {
                     item.Quality = item.Quality + 1;
                 }
