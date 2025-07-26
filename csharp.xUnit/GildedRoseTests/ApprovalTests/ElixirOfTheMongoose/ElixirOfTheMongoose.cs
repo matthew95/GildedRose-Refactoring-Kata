@@ -9,6 +9,7 @@ public class ElixirOfTheMongoose
 {
     [Theory]
     [InlineData(5, 7, 1)]
+    [InlineData(5, 7, 6)]
     [InlineData(5, 7, 31)]
     public Task ElixirOfTheMongoose_Parameterized(int sellIn, int quality, int testAfterDays)
     {
@@ -20,6 +21,6 @@ public class ElixirOfTheMongoose
             app.UpdateQuality();
         }
         
-        return Verifier.Verify(items).UseParameters(sellIn, quality);
+        return Verifier.Verify(items).UseParameters(sellIn, quality, testAfterDays);
     }
 }

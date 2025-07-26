@@ -9,6 +9,7 @@ public class Conjured
 {
     [Theory]
     [InlineData(3, 6, 1)]
+    [InlineData(3, 6, 6)]
     [InlineData(3, 6, 31)]
     public Task Conjured_Parameterized(int sellIn, int quality, int testAfterDays)
     {
@@ -20,6 +21,6 @@ public class Conjured
             app.UpdateQuality();
         }
         
-        return Verifier.Verify(items).UseParameters(sellIn, quality);
+        return Verifier.Verify(items).UseParameters(sellIn, quality, testAfterDays);
     }
 }

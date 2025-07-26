@@ -9,6 +9,10 @@ public class BackstagePasses
 {
     [Theory]
     [InlineData(15, 20, 1)]
+    [InlineData(10, 20, 1)]
+    [InlineData(6, 20, 1)]
+    [InlineData(3, 20, 1)]
+    [InlineData(3, 20, 2)]
     [InlineData(10, 49, 1)]
     [InlineData(5, 49, 1)]
     [InlineData(15, 20, 31)]
@@ -24,6 +28,6 @@ public class BackstagePasses
             app.UpdateQuality();
         }
         
-        return Verifier.Verify(items).UseParameters(sellIn, quality);
+        return Verifier.Verify(items).UseParameters(sellIn, quality, testAfterDays);
     }
 }

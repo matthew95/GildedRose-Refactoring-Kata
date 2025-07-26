@@ -22,6 +22,6 @@ public class SulfurasHandOfRagnaros
             app.UpdateQuality();
         }
         
-        return Verifier.Verify(items).UseParameters(sellIn, quality);
+        return Verifier.Verify(items).UseParameters(sellIn, quality, testAfterDays);
     }
 }
