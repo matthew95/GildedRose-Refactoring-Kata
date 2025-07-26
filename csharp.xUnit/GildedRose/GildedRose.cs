@@ -64,11 +64,28 @@ public class GildedRose
                     item.Quality = 0;
                 }
             }
-            
-            
+
+            // will implement this one later. not part of original code.
+            if (item.Name == ItemNames.Conjured)
+            {
+            }
+
+            if (item.Name == ItemNames.ElixirOfTheMongoose)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality = item.Quality - 1;
+                }
+                item.SellIn = item.SellIn - 1;
+
+                if (item.SellIn < 0 && item.Quality > 0)
+                { 
+                    item.Quality = item.Quality - 1;
+                }
+            }
+
             // ---------------
             if (item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.ElixirOfTheMongoose ||
                 item.Name == ItemNames.PlusFiveDexterityVest
                 )
             {
@@ -82,7 +99,6 @@ public class GildedRose
 
             if (
                 item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.ElixirOfTheMongoose ||
                 item.Name == ItemNames.PlusFiveDexterityVest
                 )
             {
@@ -93,7 +109,6 @@ public class GildedRose
            
             
             if (item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.ElixirOfTheMongoose ||
                 item.Name == ItemNames.PlusFiveDexterityVest)
             {
                 if (item.SellIn < 0 && item.Quality > 0)
