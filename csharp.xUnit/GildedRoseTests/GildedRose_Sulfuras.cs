@@ -30,4 +30,16 @@ public class GildedRose_Sulfuras
         
         Assert.Equal(1, sulfuras.Quality);
     }
+    
+    [Fact]
+    public void Sulfuras_DoesntChange_SellIn()
+    {
+        var sulfuras = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 2, Quality = 80 };
+        List<Item> items = [sulfuras];
+
+        var gildedRose = new GildedRose(items);
+        gildedRose.UpdateQuality();
+        
+        Assert.Equal(2, sulfuras.SellIn);
+    }
 }
