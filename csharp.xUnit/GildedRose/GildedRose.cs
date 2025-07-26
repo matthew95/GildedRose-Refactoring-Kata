@@ -84,9 +84,22 @@ public class GildedRose
                 }
             }
 
+            if (item.Name == ItemNames.PlusFiveDexterityVest)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality = item.Quality - 1;
+                }
+                item.SellIn = item.SellIn - 1;
+
+                if (item.SellIn < 0 && item.Quality > 0)
+                { 
+                    item.Quality = item.Quality - 1;
+                }
+            }
+
             // ---------------
-            if (item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.PlusFiveDexterityVest
+            if (item.Name == ItemNames.Conjured
                 )
             {
                 if (item.Quality > 0)
@@ -98,8 +111,7 @@ public class GildedRose
            
 
             if (
-                item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.PlusFiveDexterityVest
+                item.Name == ItemNames.Conjured
                 )
             {
                 item.SellIn = item.SellIn - 1;
@@ -108,8 +120,8 @@ public class GildedRose
             
            
             
-            if (item.Name == ItemNames.Conjured ||
-                item.Name == ItemNames.PlusFiveDexterityVest)
+            if (item.Name == ItemNames.Conjured
+                )
             {
                 if (item.SellIn < 0 && item.Quality > 0)
                 { 
