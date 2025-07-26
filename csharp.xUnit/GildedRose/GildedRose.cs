@@ -38,6 +38,33 @@ public class GildedRose
                 }
             }
             
+            if (item.Name == ItemNames.BackstagePasses)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                
+                    if (item.SellIn < 11 &&
+                        item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+
+                    if (item.SellIn < 6 &&
+                        item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }   
+                }
+                
+                item.SellIn = item.SellIn - 1;
+                
+                if (item.SellIn < 0)
+                {
+                    item.Quality = 0;
+                }
+            }
+            
             
             // ---------------
             if (item.Name == ItemNames.Conjured ||
@@ -51,24 +78,9 @@ public class GildedRose
                 }
             }
             
-            if (item.Name == ItemNames.BackstagePasses && item.Quality < 50) {
-                item.Quality = item.Quality + 1;
-                
-                if (item.SellIn < 11 &&
-                    item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
-
-                if (item.SellIn < 6 &&
-                    item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
-            }
+           
 
             if (
-                item.Name == ItemNames.BackstagePasses ||
                 item.Name == ItemNames.Conjured ||
                 item.Name == ItemNames.ElixirOfTheMongoose ||
                 item.Name == ItemNames.PlusFiveDexterityVest
@@ -78,13 +90,7 @@ public class GildedRose
             }
 
             
-            if (item.Name == ItemNames.BackstagePasses)
-            {
-                if (item.SellIn < 0)
-                {
-                    item.Quality = 0;
-                }
-            }
+           
             
             if (item.Name == ItemNames.Conjured ||
                 item.Name == ItemNames.ElixirOfTheMongoose ||
