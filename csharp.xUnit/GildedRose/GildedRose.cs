@@ -4,16 +4,26 @@ namespace GildedRoseKata;
 
 public class GildedRose
 {
-    IList<Item> Items;
+    private readonly IList<Item> _items;
+    private IList<Product> _products;
+    
 
     public GildedRose(IList<Item> Items)
     {
-        this.Items = Items;
+        this._items = Items;
+        this._products = new List<Product>(Items.Count);
+        foreach (var item in Items)
+        {
+            this._products.Add(new Product()
+            {
+                Item = item,
+            });
+        }
     }
 
     public void UpdateQuality()
     {
-        foreach (var item in this.Items)
+        foreach (var item in this._items)
         {
             if (item.Name == ItemNames.AgedBrie)
             {
