@@ -25,6 +25,21 @@ public class GildedRose
     {
         foreach (var item in this.Items)
         {
+            if (item.Name == ItemNames.AgedBrie)
+            {
+                item.SellIn = item.SellIn - 1;
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+                if (item.SellIn < 0 && item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+            }
+            
+            
+            // ---------------
             if (item.Name == ItemNames.Conjured ||
                 item.Name == ItemNames.ElixirOfTheMongoose ||
                 item.Name == ItemNames.PlusFiveDexterityVest
@@ -52,7 +67,7 @@ public class GildedRose
                 }
             }
 
-            if (item.Name == ItemNames.AgedBrie ||
+            if (
                 item.Name == ItemNames.BackstagePasses ||
                 item.Name == ItemNames.Conjured ||
                 item.Name == ItemNames.ElixirOfTheMongoose ||
@@ -78,15 +93,6 @@ public class GildedRose
                 if (item.SellIn < 0 && item.Quality > 0)
                 { 
                     item.Quality = item.Quality - 1;
-                }
-            }
-            
-            if (item.Name == ItemNames.AgedBrie && item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-                if (item.SellIn < 0 )
-                {
-                    item.Quality = item.Quality + 1;
                 }
             }
             
