@@ -56,4 +56,3 @@ public class GildedRose_TestBrie
         Assert.Equal(50, brie.Quality);
     }
 }
-// PlusFiveDexterityVest
