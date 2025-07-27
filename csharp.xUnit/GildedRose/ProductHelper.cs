@@ -10,7 +10,7 @@ public class ProductHelper
     {
         { ItemNames.AgedBrie, new AgedBrieBehavior() },
         { ItemNames.BackstagePasses, new BackstagePassesBehavior() },
-        { ItemNames.Conjured, new DefaultBehavior()},
+        { ItemNames.Conjured, new DeterioratesTwiceAsFastBehavior()},
         { ItemNames.ElixirOfTheMongoose, new DefaultBehavior()},
         { ItemNames.PlusFiveDexterityVest, new DefaultBehavior()},
         { ItemNames.Sulfuras, new NoBehavior()},
