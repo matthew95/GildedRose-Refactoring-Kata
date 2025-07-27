@@ -4,7 +4,7 @@ public class BackstagePassesBehavior: Behavior
 {
     private Item _item;
     
-    public BackstagePassesBehavior(Item item)
+    public void SetItem(Item item)
     {
         this._item = item;
     }

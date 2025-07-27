@@ -4,7 +4,7 @@ public class AgedBrieBehavior: Behavior
 {
     private Item _item;
     
-    public AgedBrieBehavior(Item item)
+    public void SetItem(Item item)
     {
         this._item = item;
     }

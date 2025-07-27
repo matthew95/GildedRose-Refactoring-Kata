@@ -4,7 +4,7 @@ public class DefaultBehavior: Behavior
 {
     private Item _item;
     
-    public DefaultBehavior(Item item)
+    public void SetItem(Item item)
     {
         this._item = item;
     }

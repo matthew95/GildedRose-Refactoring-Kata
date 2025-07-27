@@ -4,7 +4,7 @@ public class NoBehavior: Behavior
 {
     private Item _item;
     
-    public NoBehavior(Item item)
+    public void SetItem(Item item)
     {
         this._item = item;
     }
