@@ -1,16 +1,19 @@
 namespace GildedRoseKata.Behaviors;
 
-public class DefaultBehavior: Behavior
+public class DefaultBehavior: IBehavior
 {
     private Item _item;
-    
-    public void SetItem(Item item)
-    {
-        this._item = item;
-    }
     
     public void UpdateQuality()
     {
         
+    }
+    
+    public IBehavior CreateInstance(Item item)
+    {
+        return new DefaultBehavior
+        {
+            _item = item
+        };
     }
 }

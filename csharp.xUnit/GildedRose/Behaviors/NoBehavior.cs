@@ -1,16 +1,19 @@
 namespace GildedRoseKata.Behaviors;
 
-public class NoBehavior: Behavior
+public class NoBehavior: IBehavior
 {
     private Item _item;
-    
-    public void SetItem(Item item)
-    {
-        this._item = item;
-    }
     
     public void UpdateQuality()
     {
         
+    }
+    
+    public IBehavior CreateInstance(Item item)
+    {
+        return new NoBehavior
+        {
+            _item = item
+        };
     }
 }

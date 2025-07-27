@@ -6,7 +6,7 @@ namespace GildedRoseKata;
 
 public class ProductHelper
 {
-    private static readonly Dictionary<string, Behavior> BehaviorMap = new Dictionary<string, Behavior>
+    private static readonly Dictionary<string, IBehavior> BehaviorMap = new Dictionary<string, IBehavior>
     {
         { ItemNames.AgedBrie, new AgedBrieBehavior() },
         { ItemNames.BackstagePasses, new BackstagePassesBehavior() },
@@ -26,7 +26,7 @@ public class ProductHelper
         return new Product()
         {
             Item = item,
-            Behavior = BehaviorMap.ContainsKey(item.Name) ? BehaviorMap[item.Name] : new NoBehavior()
+            Behavior = BehaviorMap.ContainsKey(item.Name) ? BehaviorMap[item.Name].CreateInstance(item) : (new NoBehavior()).CreateInstance(item)
         };
     }
 }
