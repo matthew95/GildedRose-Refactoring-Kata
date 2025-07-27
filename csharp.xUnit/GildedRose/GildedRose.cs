@@ -8,17 +8,10 @@ public class GildedRose
     private IList<Product> _products;
     
 
-    public GildedRose(IList<Item> Items)
+    public GildedRose(IList<Item> items)
     {
-        this._items = Items;
-        this._products = new List<Product>(Items.Count);
-        foreach (var item in Items)
-        {
-            this._products.Add(new Product()
-            {
-                Item = item,
-            });
-        }
+        this._items = items;
+        this._products = ProductHelper.FromItems(items);
     }
 
     public void UpdateQuality()
