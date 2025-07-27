@@ -4,104 +4,18 @@ namespace GildedRoseKata;
 
 public class GildedRose
 {
-    private readonly IList<Item> _items;
-    private IList<Product> _products;
+    private readonly IList<Product> _products;
     
-
     public GildedRose(IList<Item> items)
     {
-        this._items = items;
         this._products = ProductHelper.FromItems(items);
     }
 
     public void UpdateQuality()
     {
-        foreach (var item in this._items)
+        foreach (var product in this._products)
         {
-            if (item.Name == ItemNames.AgedBrie)
-            {
-                item.SellIn = item.SellIn - 1;
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
-                if (item.SellIn < 0 && item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
-            }
-            
-            if (item.Name == ItemNames.BackstagePasses)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                
-                    if (item.SellIn < 11 &&
-                        item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
-                    if (item.SellIn < 6 &&
-                        item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }   
-                }
-                
-                item.SellIn = item.SellIn - 1;
-                
-                if (item.SellIn < 0)
-                {
-                    item.Quality = 0;
-                }
-            }
-
-            // will implement this one later. not part of original code.
-            // will add the original code tho.
-            if (item.Name == ItemNames.Conjured)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
-                }
-                
-                item.SellIn = item.SellIn - 1;
-
-                if (item.SellIn < 0 && item.Quality > 0)
-                { 
-                    item.Quality = item.Quality - 1;
-                }
-            }
-
-            if (item.Name == ItemNames.ElixirOfTheMongoose)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
-                }
-                item.SellIn = item.SellIn - 1;
-
-                if (item.SellIn < 0 && item.Quality > 0)
-                { 
-                    item.Quality = item.Quality - 1;
-                }
-            }
-
-            if (item.Name == ItemNames.PlusFiveDexterityVest)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
-                }
-                item.SellIn = item.SellIn - 1;
-
-                if (item.SellIn < 0 && item.Quality > 0)
-                { 
-                    item.Quality = item.Quality - 1;
-                }
-            }
+            product.Behavior.UpdateQuality();
         }
     }
 }
