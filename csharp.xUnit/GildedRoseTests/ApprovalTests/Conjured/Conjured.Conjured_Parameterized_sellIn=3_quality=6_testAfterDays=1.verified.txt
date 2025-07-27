@@ -1,7 +1,0 @@
-﻿[
-  {
-    Name: Conjured Mana Cake,
-    SellIn: 2,
-    Quality: 5
-  }
-]

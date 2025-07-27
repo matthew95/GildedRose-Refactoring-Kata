@@ -1,6 +1,0 @@
-﻿[
-  {
-    Name: Conjured Mana Cake,
-    SellIn: -3
-  }
-]
