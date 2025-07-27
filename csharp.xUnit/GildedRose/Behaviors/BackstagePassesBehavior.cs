@@ -6,23 +6,18 @@ public class BackstagePassesBehavior: IBehavior
     
     public void UpdateQuality()
     {
-        if (_item.Quality < 50)
+       ItemHelper.IncreaseQuality(_item);
+                
+        if (_item.SellIn < 11)
         {
-            _item.Quality = _item.Quality + 1;
-                
-            if (_item.SellIn < 11 &&
-                _item.Quality < 50)
-            {
-                _item.Quality = _item.Quality + 1;
-            }
-
-            if (_item.SellIn < 6 &&
-                _item.Quality < 50)
-            {
-                _item.Quality = _item.Quality + 1;
-            }   
+            ItemHelper.IncreaseQuality(_item);
         }
-                
+
+        if (_item.SellIn < 6)
+        {
+            ItemHelper.IncreaseQuality(_item);
+        }   
+        
         _item.SellIn = _item.SellIn - 1;
                 
         if (_item.SellIn < 0)
